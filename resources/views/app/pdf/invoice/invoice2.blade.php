@@ -29,7 +29,7 @@
         /* -- Header -- */
 
         .header-container {
-            background: #817AE3;
+            background: #fff;;
             position: absolute;
             width: 100%;
             height: 141px;
@@ -47,7 +47,7 @@
 
         .header-logo {
             position: absolute;
-            height: 50px;
+            height: 70px;
             text-transform: capitalize;
             color: #fff;
         }
@@ -214,7 +214,7 @@
             text-align: center;
             color: rgba(0, 0, 0, 0.85);
             padding: 5px;
-            color: #55547A;
+            color: #008459;
         }
 
         tr.item-table-heading-row th {
@@ -264,7 +264,7 @@
 
         .total-table-attribute-label {
             font-size: 12px;
-            color: #55547A;
+            color: #585858;
             text-align: left;
             padding-left: 10px;
         }
@@ -318,7 +318,7 @@
         /* -- Helpers -- */
 
         .text-primary {
-            color: #5851DB;
+            color: #008459;
         }
 
         .text-center {
@@ -387,8 +387,8 @@
                     @endif
                     @endif
                 </td>
-                <td width="40%" class="header-section-right invoice-details-container">
-                    <h1>Invoice</h1>
+                <td width="40%" class="header-section-right invoice-details-container" style="color: #343a40;">
+                    <h1>Factura</h1>
                     <h4>{{$invoice->invoice_number}}</h4>
                     <h4>{{$invoice->formattedInvoiceDate}}</h4>
                 </td>

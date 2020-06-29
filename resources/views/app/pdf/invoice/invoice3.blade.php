@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Invoice</title>
+    <title>Factura</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <style type="text/css">
@@ -55,7 +55,7 @@
 
         .header-logo {
             position: absolute;
-            height: 50px;
+            height: 115px;
             text-transform: capitalize;
             color: #817AE3;
         }
@@ -383,7 +383,7 @@
             <tr>
                 <td class="header-section-left">
                     @if($logo)
-                        <img class="header-logo" src="{{ $logo }}" alt="Company Logo">
+                        <img width="200" class="header-logo" src="{{ $logo }}" alt="Company Logo">
                     @else
                         <h1 class="header-logo"> {{$invoice->user->company->name}} </h1>
                     @endif
@@ -416,15 +416,15 @@
                 <div class="invoice-details-container">
                     <table>
                         <tr>
-                            <td class="attribute-label">Invoice Number</td>
+                            <td class="attribute-label">Número de control: </td>
                             <td class="attribute-value"> &nbsp;{{$invoice->invoice_number}}</td>
                         </tr>
                         <tr>
-                            <td class="attribute-label">Invoice Date </td>
+                            <td class="attribute-label">Fecha de emisión: </td>
                             <td class="attribute-value"> &nbsp;{{$invoice->formattedInvoiceDate}}</td>
                         </tr>
                         <tr>
-                            <td class="attribute-label">Due date</td>
+                            <td class="attribute-label">Fecha de vencimiento:</td>
                             <td class="attribute-value"> &nbsp;{{$invoice->formattedDueDate}}</td>
                         </tr>
                     </table>
