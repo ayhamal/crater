@@ -21,6 +21,7 @@ use PDF;
 use Validator;
 use Crater\TaxType;
 use Crater\Tax;
+use Crater\ExchangeRate;
 
 class InvoicesController extends Controller
 {
@@ -202,8 +203,11 @@ class InvoicesController extends Controller
             'taxes.taxType'
         ])->find($id);
 
+        $exchange_rate = ExchangeRate::latest()->first();
+
         $siteData = [
             'invoice' => $invoice,
+            'today_exchange_rate' => $exchange_rate,
             'shareable_link' => url('/invoices/pdf/' . $invoice->unique_hash)
         ];
 

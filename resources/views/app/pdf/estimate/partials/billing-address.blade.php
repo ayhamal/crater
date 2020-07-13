@@ -1,5 +1,5 @@
 @if($estimate->user->billingaddress)
-    <p class="billing-address-label">Bill To,</p>
+    <p class="billing-address-label">A nombre de,</p>
     @if($estimate->user->billingaddress->name)
         <p class="billing-address-name">
             {{$estimate->user->billingaddress->name}}

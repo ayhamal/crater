@@ -37,7 +37,8 @@
                 class="item-cell text-right pr-20"
                 style="vertical-align: top;"
             >
-                {!! format_money_pdf($item->price, $invoice->user->currency) !!}
+                {!! number_format( $exchange->rate * $item->price/100,2) .' Bs' !!}
+                {!! /*format_money_pdf($item->price, $invoice->user->currency)*/'' !!}
             </td>
             @if($invoice->discount_per_item === 'YES')
                 <td
@@ -45,7 +46,7 @@
                     style="vertical-align: top;"
                 >
                     @if($item->discount_type === 'fixed')
-                        {!! format_money_pdf($item->discount_val, $invoice->user->currency) !!}
+                        {!! /*format_money_pdf($item->discount_val, $invoice->user->currency)*/'' !!}
                     @endif
                     @if($item->discount_type === 'percentage')
                         {{$item->discount}}%
@@ -56,7 +57,8 @@
                 class="item-cell text-right"
                 style="vertical-align: top;"
             >
-                {!! format_money_pdf($item->total, $invoice->user->currency) !!}
+                {!! number_format( $exchange->rate * $item->total/100,2) .' Bs' !!}
+                {!! /*format_money_pdf($item->total, $invoice->user->currency)*/'' !!}
             </td>
         </tr>
         @php
@@ -72,7 +74,8 @@
         <tr>
             <td class="border-0 total-table-attribute-label">Subtotal</td>
             <td class="border-0 item-cell py-2 total-table-attribute-value">
-                {!! format_money_pdf($invoice->sub_total, $invoice->user->currency) !!}
+                {!! number_format(206274.21* $invoice->sub_total/100,2) .' Bs' !!}
+                {!! /*format_money_pdf($invoice->sub_total, $invoice->user->currency)*/'' !!}
             </td>
         </tr>
 
@@ -83,7 +86,8 @@
                         {{$labels[$i]}}
                     </td>
                     <td class="border-0 item-cell py-2 total-table-attribute-value">
-                        {!! format_money_pdf($taxes[$i], $invoice->user->currency) !!}
+                        {!! number_format( $exchange->rate * $taxes[$i]/100,2) .' Bs' !!}
+                        {!! /*format_money_pdf($taxes[$i], $invoice->user->currency)*/'' !!}
                     </td>
                 </tr>
             @endfor
@@ -94,7 +98,8 @@
                         {{$tax->name.' ('.$tax->percent.'%)'}}
                     </td>
                     <td class="border-0 item-cell py-2 total-table-attribute-value">
-                        {!! format_money_pdf($tax->amount, $invoice->user->currency) !!}
+                        {!! number_format( $exchange->rate * $tax->amount/100,2) .' Bs' !!}
+                        {!! /*format_money_pdf($tax->amount, $invoice->user->currency)*/'' !!}
                     </td>
                 </tr>
             @endforeach
@@ -112,10 +117,12 @@
                 </td>
                 <td class="border-0 item-cell py-2 total-table-attribute-value" >
                     @if($invoice->discount_type === 'fixed')
-                        {!! format_money_pdf($invoice->discount_val, $invoice->user->currency) !!}
+                        {!! number_format( $exchange->rate * $invoice->discount_val/100,2) .' Bs' !!}
+                        {!! /*format_money_pdf($invoice->discount_val, $invoice->user->currency)*/'' !!}
                     @endif
                     @if($invoice->discount_type === 'percentage')
-                        {!! format_money_pdf($invoice->discount_val, $invoice->user->currency) !!}
+                        {!! number_format( $exchange->rate * $invoice->discount_val/100,2) .' Bs' !!}
+                        {!! /*format_money_pdf($invoice->discount_val, $invoice->user->currency)*/'' !!}
                     @endif
                 </td>
             </tr>
@@ -130,9 +137,10 @@
             </td>
             <td
                 class="border-0 total-border-right item-cell py-8 total-table-attribute-value text-primary"
-                style="font-size: 15px;"
+                style="font-size: 13.5px;"
             >
-                {!! format_money_pdf($invoice->total, $invoice->user->currency)!!}
+                {!! number_format( $exchange->rate * $invoice->total/100,2) .' Bs' !!}
+                {!! /*format_money_pdf($invoice->total, $invoice->user->currency)*/''!!}
             </td>
         </tr>
     </table>

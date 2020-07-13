@@ -1,7 +1,7 @@
 @if ($estimate->notes != '' && $estimate->notes != null)
     <div class="notes">
         <div class="notes-label">
-            Notes
+            Nota:
         </div>
         {!! nl2br(htmlspecialchars($estimate->notes)) !!}
     </div>

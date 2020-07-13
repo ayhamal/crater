@@ -13,6 +13,7 @@ use Crater\InvoiceTemplate;
 use Crater\EstimateTemplate;
 use Crater\Mail\EstimateViewed;
 use Crater\Mail\InvoiceViewed;
+use Crater\ExchangeRate;
 
 class FrontendController extends Controller
 {
@@ -313,6 +314,8 @@ class FrontendController extends Controller
             ->where('unique_hash', $id)
             ->first();
 
+        $exchange = ExchangeRate::latest()->first(); //TODO
+
         $taxTypes = [];
         $taxes = [];
         $labels = [];
@@ -371,7 +374,8 @@ class FrontendController extends Controller
             'logo' => $logo ?? null,
             'colors' => $colorSettings,
             'labels' => $labels,
-            'taxes' => $taxes
+            'taxes' => $taxes,
+            'exchange' => $exchange,
         ]);
         $pdf = PDF::loadView('app.pdf.invoice.'.$invoiceTemplate->view);
 

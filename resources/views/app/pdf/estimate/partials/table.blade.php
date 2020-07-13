@@ -2,12 +2,12 @@
     <tr class="item-table-heading-row">
         <th width="2%" class="item-table-heading text-right pr-20">#</th>
         <th width="40%" class="item-table-heading text-left pl-0">Items</th>
-        <th class="item-table-heading text-right pr-20">Quantity</th>
-        <th class="item-table-heading text-right pr-20">Price</th>
+        <th class="item-table-heading text-right pr-20">Cantidad</th>
+        <th class="item-table-heading text-right pr-20">Precio</th>
         @if($estimate->discount_per_item === 'YES')
-        <th class="item-table-heading text-right pl-10">Discount</th>
+        <th class="item-table-heading text-right pl-10">Descuento</th>
         @endif
-        <th class="item-table-heading text-right">Amount </th>
+        <th class="item-table-heading text-right">Importe </th>
     </tr>
     @php
         $index = 1
@@ -99,10 +99,10 @@
             <tr>
                 <td class="border-0 total-table-attribute-label pl-10">
                     @if($estimate->discount_type === 'fixed')
-                        Discount
+                        Descuento
                     @endif
                     @if($estimate->discount_type === 'percentage')
-                        Discount ({{$estimate->discount}}%)
+                        Descuento ({{$estimate->discount}}%)
                     @endif
                 </td>
                 <td class="border-0 item-cell total-table-attribute-value text-right">

@@ -426,15 +426,15 @@
                 <div class="estimate-details-container">
                     <table>
                         <tr>
-                            <td class="attribute-label">Estimate Number</td>
+                            <td class="attribute-label">Nota de Entrega: </td>
                             <td class="attribute-value"> &nbsp;{{$estimate->estimate_number}}</td>
                         </tr>
                         <tr>
-                            <td class="attribute-label">Estimate Date </td>
+                            <td class="attribute-label">Fecha de emisión: </td>
                             <td class="attribute-value"> &nbsp;{{$estimate->formattedEstimateDate}}</td>
                         </tr>
                         <tr>
-                            <td class="attribute-label">Expiry Date</td>
+                            <td class="attribute-label">Fecha de pago: </td>
                             <td class="attribute-value"> &nbsp;{{$estimate->formattedExpiryDate}}</td>
                         </tr>
                     </table>
